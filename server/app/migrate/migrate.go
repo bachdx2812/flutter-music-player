@@ -1,8 +1,8 @@
 package main
 
 import (
-	"server/initializers"
-	"server/models"
+	"server/app/initializers"
+	"server/app/models"
 )
 
 func init() {
