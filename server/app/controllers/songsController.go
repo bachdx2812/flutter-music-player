@@ -19,6 +19,17 @@ func SongsList (c *gin.Context) {
 	})
 }
 
+func SongDetail (c *gin.Context) {
+	id := c.Param("id")
+
+	var song models.Song
+	initializers.DB.First(&song, id)
+
+	c.JSON(200, gin.H {
+		"song": song,
+	})
+}
+
 func SongCreate (c *gin.Context) {
 	youtubeUrl := c.PostForm("youtubeUrl")
 	

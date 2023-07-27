@@ -16,6 +16,7 @@ func main () {
 	r := gin.Default()
 
 	r.GET("/songs", controllers.SongsList)
+	r.GET("/songs/:id", controllers.SongDetail)
 	r.POST("/songs", controllers.SongCreate)
 
 	r.Run()
