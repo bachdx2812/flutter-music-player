@@ -1,4 +1,4 @@
-import 'package:app/models/song_model.dart';
+import '../models/song_model.dart';
 
 class Playlist {
   final String title;

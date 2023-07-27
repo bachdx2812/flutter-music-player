@@ -31,4 +31,6 @@ class Song {
       coverUrl: 'assets/images/pray.jpg',
     )
   ];
+
+  // TODO: factory
 }

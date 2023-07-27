@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/section_header.dart';
 import '../widgets/song_card.dart';
 import '../widgets/playlist_card.dart';
 
+import '../controllers/songs_controller.dart';
+
 import '../models/playlist_model.dart';
 import '../models/song_model.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  static final SongsController songsController = Get.put(SongsController());
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  static final SongsController songsController = Get.put(SongsController());
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      songsController.fetchSongs();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +83,6 @@ class HomeScreen extends StatelessWidget {
 
 class _TrendingMusic extends StatelessWidget {
   const _TrendingMusic({
-    super.key,
     required this.songs,
   });
 
