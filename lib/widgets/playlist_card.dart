@@ -52,7 +52,7 @@ class PlaylistCard extends StatelessWidget {
                         ),
                   ),
                   Text(
-                    '${playlist.songs.length}',
+                    '10',
                     maxLines: 2,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.bold,
