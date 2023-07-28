@@ -24,7 +24,7 @@ class SongCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
-                  image: AssetImage(song.coverUrl),
+                  image: NetworkImage(song.coverUrl),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -52,7 +52,7 @@ class SongCard extends StatelessWidget {
                             ),
                       ),
                       Text(
-                        song.description,
+                        song.title,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
