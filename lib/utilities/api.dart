@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 Future<dynamic> getRequest({required String endpoint, dynamic params}) async {
   // ignore: unnecessary_brace_in_string_interps
   var requestURI = '${dotenv.env["API_ENDPOINT"]}/${endpoint}';
-  print(requestURI);
 
   Uri url = Uri.parse(requestURI).replace(queryParameters: params);
 

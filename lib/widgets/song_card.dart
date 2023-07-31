@@ -44,19 +44,32 @@ class SongCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        song.title,
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: Colors.deepPurple,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      SizedBox(
+                        width: 90.0,
+                        child: Text(
+                          song.title,
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    color: Colors.deepPurple,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
                       ),
-                      Text(
-                        song.title,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      SizedBox(
+                        width: 90.0,
+                        child: Text(
+                          song.title,
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
                       )
                     ],
                   ),
