@@ -4,11 +4,8 @@ import "../models/song_model.dart";
 import "../repositories/song_repository.dart";
 
 class SongsController extends GetxController {
-  var songsList = <Song>[].obs;
-
-  setSongsList(value) {
-    songsList.value = value;
-  }
+  var trendingSongsList = <Song>[].obs;
+  var trendingSongsListLoading = true.obs;
 
   fetchSongs() async {
     List<Song> returnData = [];
@@ -23,6 +20,7 @@ class SongsController extends GetxController {
       }
     }
 
-    songsList.value = returnData;
+    trendingSongsList.value = returnData;
+    trendingSongsListLoading.value = false;
   }
 }

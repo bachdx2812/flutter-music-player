@@ -2,38 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../widgets/section_header.dart';
-import '../widgets/song_card.dart';
+import '../widgets/trending_mucics.dart';
 import '../widgets/playlist_card.dart';
 
-import '../controllers/songs_controller.dart';
-
 import '../models/playlist_model.dart';
-import '../models/song_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
-  static final SongsController songsController = Get.put(SongsController());
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static final SongsController songsController = Get.put(SongsController());
-
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      songsController.fetchSongs();
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Song> songs = songsController.songsList;
     List<Playlist> playlists = Playlist.playlists;
 
     return Container(
@@ -55,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               const _DiscoverMusic(),
-              _TrendingMusic(songs: songs),
+              const TrendingMusic(),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
@@ -75,53 +63,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _TrendingMusic extends StatelessWidget {
-  const _TrendingMusic({
-    required this.songs,
-  });
-
-  final List<Song> songs;
-
-  @override
-  Widget build(BuildContext context) {
-    return Obx(
-      () => Padding(
-        padding: const EdgeInsets.only(
-          left: 20.0,
-          top: 20.0,
-          bottom: 20.0,
-        ),
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: SectionHeader(
-                title: "Trending Music",
-                action: "View More",
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.27,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: songs.length,
-                itemBuilder: (context, index) {
-                  return SongCard(
-                    song: songs[index],
-                  );
-                },
-              ),
-            )
-          ],
         ),
       ),
     );

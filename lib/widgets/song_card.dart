@@ -4,15 +4,15 @@ import 'package:get/get.dart';
 import '../models/song_model.dart';
 
 class SongCard extends StatelessWidget {
-  final Song song;
+  final Song? song;
 
-  const SongCard({super.key, required this.song});
+  const SongCard({super.key, this.song});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed('/song', arguments: song);
+        song != null ? Get.toNamed('/song', arguments: song) : null;
       },
       child: Container(
         margin: const EdgeInsets.only(right: 10),
@@ -24,7 +24,11 @@ class SongCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 image: DecorationImage(
-                  image: NetworkImage(song.coverUrl),
+                  image: NetworkImage(
+                    song != null
+                        ? song!.coverUrl
+                        : "https://placehold.co/600x400/png",
+                  ),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -37,48 +41,54 @@ class SongCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.0),
                 color: Colors.white.withOpacity(0.8),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 90.0,
-                        child: Text(
-                          song.title,
-                          style:
-                              Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                    color: Colors.deepPurple,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: false,
+              child: song != null
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 90.0,
+                              child: Text(
+                                song!.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(
+                                      color: Colors.deepPurple,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: false,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 90.0,
+                              child: Text(
+                                song!.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                overflow: TextOverflow.ellipsis,
+                                softWrap: false,
+                              ),
+                            )
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        width: 90.0,
-                        child: Text(
-                          song.title,
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: false,
+                        const Icon(
+                          Icons.play_circle,
+                          color: Colors.deepPurple,
                         ),
-                      )
-                    ],
-                  ),
-                  const Icon(
-                    Icons.play_circle,
-                    color: Colors.deepPurple,
-                  ),
-                ],
-              ),
+                      ],
+                    )
+                  : null,
             ),
           ],
         ),
