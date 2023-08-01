@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../controllers/chart_controller.dart';
+
+import '../models/playlist_model.dart';
 
 import '../widgets/section_header.dart';
 import '../widgets/playlist_card.dart';
-
-import '../models/playlist_model.dart';
 
 class Playlists extends StatefulWidget {
   const Playlists({super.key});
@@ -13,6 +16,17 @@ class Playlists extends StatefulWidget {
 }
 
 class _PlaylistsState extends State<Playlists> {
+  static final ChartController _chartController = Get.put(ChartController());
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _chartController.fetchChart();
+    });
+  }
+
   List<Playlist> playlists = Playlist.playlists;
 
   @override
