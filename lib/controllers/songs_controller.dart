@@ -8,6 +8,8 @@ class SongsController extends GetxController {
   var trendingSongsListLoading = true.obs;
 
   fetchSongs() async {
+    trendingSongsListLoading.value = true;
+
     List<Song> returnData = [];
 
     var query = {'q': 'suni ha linh'};
