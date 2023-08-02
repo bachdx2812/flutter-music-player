@@ -12,12 +12,12 @@ class SongsController extends GetxController {
 
     List<Song> returnData = [];
 
-    var query = {'q': 'suni ha linh'};
+    var query = {'q': 'suni ha linh', 'limit': limit.toString()};
 
     var result = await SongRepository.fetchList(query);
 
     if (result != null) {
-      for (Map<String, dynamic> song in result.take(limit)) {
+      for (Map<String, dynamic> song in result) {
         returnData.add(Song.fromJson(song));
       }
     }

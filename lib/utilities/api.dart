@@ -5,14 +5,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 Future<dynamic> getRequest({
   required String endpoint,
   required String responseKey,
-  dynamic params,
+  Map<String, dynamic> params = const {},
 }) async {
   // ignore: unnecessary_brace_in_string_interps
   var requestURI = '${dotenv.env["API_ENDPOINT"]}/${endpoint}';
 
   Uri url = Uri.parse(requestURI);
 
-  if (params != null) {
+  if (params != {}) {
     url = url.replace(queryParameters: params);
   }
 
