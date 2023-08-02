@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/extensions/hex_to_color.dart';
+
+import '../extensions/hex_to_color.dart';
 
 import '../widgets/custom_app_bar.dart';
 import '../widgets/discover_music.dart';

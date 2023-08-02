@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class DiscoverMusic extends StatelessWidget {
+import '../extensions/hex_to_color.dart';
+
+import '../controllers/songs_controller.dart';
+
+class DiscoverMusic extends StatefulWidget {
   const DiscoverMusic({super.key});
+
+  @override
+  State<DiscoverMusic> createState() => _DiscoverMusicState();
+}
+
+class _DiscoverMusicState extends State<DiscoverMusic> {
+  static final SongsController _songsController = Get.put(SongsController());
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +43,20 @@ class DiscoverMusic extends StatelessWidget {
             height: 20,
           ),
           TextFormField(
+            style: TextStyle(color: "#FE6847".toColor()),
+            onChanged: (String? text) {},
+            onFieldSubmitted: (value) {
+              setState(() {
+                _songsController.setSearchText(value);
+              });
+
+              _songsController.fetchSongs();
+            },
             decoration: InputDecoration(
               isDense: true,
               filled: true,
               fillColor: Colors.white,
-              hintText: 'Search',
+              hintText: _songsController.searchText.value,
               hintStyle: Theme.of(context)
                   .textTheme
                   .bodyMedium!

@@ -7,12 +7,14 @@ class SongsController extends GetxController {
   var trendingSongsList = <Song>[].obs;
   var trendingSongsListLoading = true.obs;
 
+  var searchText = "suni ha linh".obs;
+
   fetchSongs([int limit = 5]) async {
     trendingSongsListLoading.value = true;
 
     List<Song> returnData = [];
 
-    var query = {'q': 'suni ha linh', 'limit': limit.toString()};
+    var query = {'q': searchText.value, 'limit': limit.toString()};
 
     var result = await SongRepository.fetchList(query);
 
@@ -24,5 +26,9 @@ class SongsController extends GetxController {
 
     trendingSongsList.value = returnData;
     trendingSongsListLoading.value = false;
+  }
+
+  setSearchText(value) {
+    searchText.value = value;
   }
 }

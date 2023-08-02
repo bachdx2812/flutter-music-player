@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../controllers/songs_controller.dart';
 import '../widgets/song_card.dart';
 import '../widgets/section_header.dart';
+
+import '../controllers/songs_controller.dart';
 
 class TrendingMusic extends StatefulWidget {
   const TrendingMusic({
