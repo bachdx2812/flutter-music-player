@@ -17,7 +17,7 @@ class SongsController extends GetxController {
     var result = await SongRepository.fetchList(query);
 
     if (result != null) {
-      for (Map<String, dynamic> song in result) {
+      for (Map<String, dynamic> song in result.take(5)) {
         returnData.add(Song.fromJson(song));
       }
     }

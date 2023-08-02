@@ -7,14 +7,16 @@ class ChartController extends GetxController {
   var playlistsLoading = true.obs;
 
   fetchChart() async {
-    print("hereh");
-
     List<Playlist> returnData = [];
 
     var result = await ChartRepository.fetchPlaylists();
 
     if (result != null) {
-      print(result);
+      for (Map<String, dynamic> playlist in result['data'].take(5)) {
+        returnData.add(Playlist.fromJson(playlist));
+      }
     }
+
+    playlists.value = returnData;
   }
 }
