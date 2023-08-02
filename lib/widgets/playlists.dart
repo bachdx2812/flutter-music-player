@@ -21,7 +21,7 @@ class _PlaylistsState extends State<Playlists> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _chartController.fetchChart();
+      _chartController.fetchPlaylists();
     });
   }
 

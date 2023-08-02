@@ -7,7 +7,7 @@ class SongsController extends GetxController {
   var trendingSongsList = <Song>[].obs;
   var trendingSongsListLoading = true.obs;
 
-  fetchSongs() async {
+  fetchSongs([int limit = 5]) async {
     trendingSongsListLoading.value = true;
 
     List<Song> returnData = [];
@@ -17,7 +17,7 @@ class SongsController extends GetxController {
     var result = await SongRepository.fetchList(query);
 
     if (result != null) {
-      for (Map<String, dynamic> song in result.take(5)) {
+      for (Map<String, dynamic> song in result.take(limit)) {
         returnData.add(Song.fromJson(song));
       }
     }
