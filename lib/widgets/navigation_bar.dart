@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../extensions/hex_to_color.dart';
+
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({
     super.key,
@@ -9,7 +11,7 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.deepPurple.shade800,
+      backgroundColor: "#FE6847".toColor().withOpacity(0.8),
       unselectedItemColor: Colors.white,
       selectedItemColor: Colors.white,
       showUnselectedLabels: false,

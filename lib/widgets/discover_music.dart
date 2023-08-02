@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DiscoverMusic extends StatelessWidget {
-  const DiscoverMusic();
+  const DiscoverMusic({super.key});
 
   @override
   Widget build(BuildContext context) {

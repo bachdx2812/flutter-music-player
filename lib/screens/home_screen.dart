@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/extensions/hex_to_color.dart';
 
 import '../widgets/custom_app_bar.dart';
 import '../widgets/discover_music.dart';
@@ -27,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade200.withOpacity(0.8),
+            "#FE6847".toColor().withOpacity(0.8),
+            "#F5AC9B".toColor().withOpacity(0.8),
           ],
         ),
       ),
