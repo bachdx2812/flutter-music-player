@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../extensions/hex_to_color.dart';
+import '../configurations/colors_config.dart';
 
 import '../models/playlist_model.dart';
 
@@ -24,7 +24,7 @@ class PlaylistCard extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
-          color: "#F5AC9B".toColor().withOpacity(0.5),
+          color: ColorsConfig.secondary.withOpacity(0.5),
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: Row(
@@ -51,7 +51,7 @@ class PlaylistCard extends StatelessWidget {
                     playlist.title,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: "#B66D0D".toColor(),
+                          color: ColorsConfig.tertiary,
                         ),
                   ),
                   Text(
@@ -59,7 +59,7 @@ class PlaylistCard extends StatelessWidget {
                     maxLines: 2,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: "#B66D0D".toColor(),
+                          color: ColorsConfig.tertiary,
                         ),
                   )
                 ],

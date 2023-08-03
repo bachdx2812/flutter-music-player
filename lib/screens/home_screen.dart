@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../extensions/hex_to_color.dart';
+import '../configurations/colors_config.dart';
 
 import '../widgets/custom_app_bar.dart';
 import '../widgets/discover_music.dart';
@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            "#FE6847".toColor().withOpacity(0.8),
-            "#F5AC9B".toColor().withOpacity(0.8),
+            ColorsConfig.primary.withOpacity(0.8),
+            ColorsConfig.secondary.withOpacity(0.8),
           ],
         ),
       ),

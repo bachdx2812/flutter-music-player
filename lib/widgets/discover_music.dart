@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../extensions/hex_to_color.dart';
+import '../configurations/colors_config.dart';
 
 import '../controllers/songs_controller.dart';
 
@@ -43,7 +43,7 @@ class _DiscoverMusicState extends State<DiscoverMusic> {
             height: 20,
           ),
           TextFormField(
-            style: TextStyle(color: "#FE6847".toColor()),
+            style: TextStyle(color: ColorsConfig.primary),
             onChanged: (String? text) {},
             onFieldSubmitted: (value) {
               setState(() {

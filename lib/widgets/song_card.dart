@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../extensions/hex_to_color.dart';
+import '../configurations/colors_config.dart';
 
 import '../models/song_model.dart';
 
@@ -60,7 +59,7 @@ class SongCard extends StatelessWidget {
                                     .bodyLarge!
                                     .copyWith(
                                       color:
-                                          "#FE6847".toColor().withOpacity(0.8),
+                                          ColorsConfig.primary.withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                     ),
                                 maxLines: 1,
@@ -76,8 +75,8 @@ class SongCard extends StatelessWidget {
                                     .textTheme
                                     .bodySmall!
                                     .copyWith(
-                                      color:
-                                          "#F5AC9B".toColor().withOpacity(0.8),
+                                      color: ColorsConfig.secondary
+                                          .withOpacity(0.8),
                                       fontWeight: FontWeight.bold,
                                     ),
                                 overflow: TextOverflow.ellipsis,
