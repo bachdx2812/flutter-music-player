@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<dynamic> getRequest({
   required String endpoint,
-  required String responseKey,
+  dynamic responseKey,
   Map<String, dynamic> params = const {},
 }) async {
   // ignore: unnecessary_brace_in_string_interps
@@ -12,9 +12,13 @@ Future<dynamic> getRequest({
 
   Uri url = Uri.parse(requestURI);
 
+  print(params);
+
   if (params != {}) {
     url = url.replace(queryParameters: params);
   }
+
+  print(url);
 
   var response = await get(
     url,
@@ -23,7 +27,7 @@ Future<dynamic> getRequest({
   var decodedResponse = json.decode(response.body) as dynamic;
 
   if (response.statusCode == 200) {
-    return decodedResponse[responseKey];
+    return responseKey != null ? decodedResponse[responseKey] : decodedResponse;
   } else {
     return null;
   }

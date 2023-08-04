@@ -13,7 +13,7 @@ class SongCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        song != null ? Get.toNamed('/song', arguments: song) : null;
+        song != null ? Get.toNamed('/song', arguments: {'id': song!.id}) : null;
       },
       child: Container(
         margin: const EdgeInsets.only(right: 10),
@@ -27,8 +27,8 @@ class SongCard extends StatelessWidget {
                 image: DecorationImage(
                   image: NetworkImage(
                     song != null
-                        ? song!.coverUrl
-                        : "https://placehold.co/600x400/png",
+                        ? song!.coverMedium
+                        : "https://placehold.co/400x600/png",
                   ),
                   fit: BoxFit.cover,
                 ),
