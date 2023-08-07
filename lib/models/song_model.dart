@@ -3,7 +3,8 @@ class Song {
   final String title;
   final String url;
   final String coverMedium;
-  String coverXl;
+  final String coverXl;
+  final String preview;
 
   Song({
     required this.id,
@@ -11,6 +12,7 @@ class Song {
     required this.url,
     required this.coverMedium,
     required this.coverXl,
+    required this.preview,
   });
 
   factory Song.fromJson(Map<String, dynamic> json) {
@@ -20,6 +22,7 @@ class Song {
       url: json['preview'],
       coverMedium: json['album']['cover_medium'],
       coverXl: json['album']['cover_xl'],
+      preview: json['preview'],
     );
   }
 }

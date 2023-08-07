@@ -12,13 +12,9 @@ Future<dynamic> getRequest({
 
   Uri url = Uri.parse(requestURI);
 
-  print(params);
-
   if (params != {}) {
     url = url.replace(queryParameters: params);
   }
-
-  print(url);
 
   var response = await get(
     url,
