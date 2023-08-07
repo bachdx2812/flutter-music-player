@@ -55,7 +55,7 @@ class _SongScreenState extends State<SongScreen> {
         Duration? duration,
       ) {
         return SeekBarData(
-          position ?? Duration.zero,
+          position,
           duration ?? Duration.zero,
         );
       });
@@ -85,7 +85,7 @@ class _SongScreenState extends State<SongScreen> {
                     seekBarDataStream: _seekBarDataStream,
                     audioPlayer: audioPlayer,
                   )
-                : SizedBox.shrink(),
+                : const SizedBox.shrink(),
           ],
         ),
       ),
@@ -95,7 +95,6 @@ class _SongScreenState extends State<SongScreen> {
 
 class _MusicPlayer extends StatelessWidget {
   const _MusicPlayer({
-    super.key,
     required this.song,
     required Stream<SeekBarData> seekBarDataStream,
     required this.audioPlayer,
@@ -143,7 +142,7 @@ class _MusicPlayer extends StatelessWidget {
               final positionData = snapshot.data;
 
               return SeekBar(
-                position: positionData?.duration ?? Duration.zero,
+                position: positionData?.position ?? Duration.zero,
                 duration: positionData?.duration ?? Duration.zero,
                 onChangeEnd: audioPlayer.seek,
               );

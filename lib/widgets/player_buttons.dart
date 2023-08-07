@@ -18,8 +18,11 @@ class PlayerButtons extends StatelessWidget {
           stream: audioPlayer.sequenceStateStream,
           builder: (context, index) {
             return IconButton(
-              onPressed:
-                  audioPlayer.hasPrevious ? audioPlayer.seekToPrevious : null,
+              onPressed: () {
+                if (audioPlayer.hasPrevious) {
+                  audioPlayer.seekToPrevious();
+                }
+              },
               iconSize: 45,
               icon: const Icon(
                 Icons.skip_previous,
@@ -45,7 +48,9 @@ class PlayerButtons extends StatelessWidget {
                 );
               } else if (!audioPlayer.playing) {
                 return IconButton(
-                  onPressed: audioPlayer.play,
+                  onPressed: () {
+                    audioPlayer.play();
+                  },
                   iconSize: 75.0,
                   icon: const Icon(
                     Icons.play_circle,
@@ -54,7 +59,9 @@ class PlayerButtons extends StatelessWidget {
                 );
               } else if (processingState != ProcessingState.completed) {
                 return IconButton(
-                  onPressed: audioPlayer.pause,
+                  onPressed: () {
+                    audioPlayer.pause();
+                  },
                   iconSize: 75.0,
                   icon: const Icon(
                     Icons.pause_circle,
@@ -83,7 +90,11 @@ class PlayerButtons extends StatelessWidget {
           stream: audioPlayer.sequenceStateStream,
           builder: (context, index) {
             return IconButton(
-              onPressed: audioPlayer.hasNext ? audioPlayer.seekToNext : null,
+              onPressed: () {
+                if (audioPlayer.hasNext) {
+                  audioPlayer.seekToNext();
+                }
+              },
               iconSize: 45,
               icon: const Icon(
                 Icons.skip_next,
