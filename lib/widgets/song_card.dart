@@ -40,7 +40,7 @@ class SongCard extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
-                color: Colors.white.withOpacity(0.9),
+                color: ColorsConfig.primary.withOpacity(0.7),
               ),
               child: song != null
                   ? Row(
@@ -58,8 +58,7 @@ class SongCard extends StatelessWidget {
                                     .textTheme
                                     .bodyLarge!
                                     .copyWith(
-                                      color:
-                                          ColorsConfig.primary.withOpacity(0.8),
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
                                 maxLines: 1,
@@ -70,13 +69,12 @@ class SongCard extends StatelessWidget {
                             SizedBox(
                               width: 90.0,
                               child: Text(
-                                song!.title,
+                                song!.artist.name,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
                                     .copyWith(
-                                      color: ColorsConfig.secondary
-                                          .withOpacity(0.8),
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
                                 overflow: TextOverflow.ellipsis,
@@ -87,7 +85,7 @@ class SongCard extends StatelessWidget {
                         ),
                         const Icon(
                           Icons.play_circle,
-                          color: Colors.deepOrange,
+                          color: Colors.white,
                         ),
                       ],
                     )

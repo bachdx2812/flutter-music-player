@@ -1,3 +1,5 @@
+import './artist_model.dart';
+
 class Song {
   final int id;
   final String title;
@@ -5,6 +7,7 @@ class Song {
   final String coverMedium;
   final String coverXl;
   final String preview;
+  final Artist artist;
 
   Song({
     required this.id,
@@ -13,6 +16,7 @@ class Song {
     required this.coverMedium,
     required this.coverXl,
     required this.preview,
+    required this.artist,
   });
 
   factory Song.fromJson(Map<String, dynamic> json) {
@@ -23,6 +27,7 @@ class Song {
       coverMedium: json['album']['cover_medium'],
       coverXl: json['album']['cover_xl'],
       preview: json['preview'],
+      artist: Artist.fromJson(json['artist']),
     );
   }
 }

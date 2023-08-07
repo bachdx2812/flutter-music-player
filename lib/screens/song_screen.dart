@@ -125,13 +125,24 @@ class _MusicPlayer extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Text(
-            song.title,
-            maxLines: 2,
-            style: Theme.of(context)
-                .textTheme
-                .bodySmall!
-                .copyWith(color: Colors.white),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 12, // Image radius
+                backgroundImage: NetworkImage(song.artist.pictureSmall),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                song.artist.name,
+                maxLines: 2,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: Colors.white),
+              ),
+            ],
           ),
           const SizedBox(
             height: 20,
