@@ -21,10 +21,7 @@ class Playlist {
     List<Song> songs = [];
 
     if (json['tracks'] != null) {
-      print(json['tracks']['data'][0]['artist']);
       for (Map<String, dynamic> song in json['tracks']['data']) {
-        print(song);
-
         songs.add(Song.fromJson(song));
       }
     }

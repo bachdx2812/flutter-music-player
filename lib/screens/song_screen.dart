@@ -129,7 +129,10 @@ class _MusicPlayer extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 12, // Image radius
-                backgroundImage: NetworkImage(song.artist.pictureSmall),
+                backgroundImage: NetworkImage(
+                  song.artist.pictureSmall ??
+                      "https://placehold.co/12x12/000000/FFF",
+                ),
               ),
               const SizedBox(
                 width: 5,

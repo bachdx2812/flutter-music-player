@@ -1,14 +1,14 @@
 class Artist {
   final int id;
   final String name;
-  final String pictureSmall;
-  final String pictureBig;
+  String? pictureSmall;
+  String? pictureBig;
 
   Artist({
     required this.id,
     required this.name,
-    required this.pictureSmall,
-    required this.pictureBig,
+    this.pictureSmall,
+    this.pictureBig,
   });
 
   factory Artist.fromJson(Map<String, dynamic> json) {
