@@ -194,8 +194,8 @@ class _BackgroundFilter extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              ColorsConfig.secondary,
-              ColorsConfig.primary,
+              ColorsConfig.secondary.withOpacity(0.8),
+              ColorsConfig.primary.withOpacity(0.8),
             ],
           ),
         ),
