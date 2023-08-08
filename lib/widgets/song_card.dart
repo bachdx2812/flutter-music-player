@@ -13,7 +13,11 @@ class SongCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        song != null ? Get.toNamed('/song', arguments: {'id': song!.id}) : null;
+        song != null
+            ? Get.toNamed('/song', arguments: {
+                'id': song!.id,
+              })
+            : null;
       },
       child: Container(
         margin: const EdgeInsets.only(right: 10),

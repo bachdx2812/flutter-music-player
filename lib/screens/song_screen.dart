@@ -75,7 +75,7 @@ class _SongScreenState extends State<SongScreen> {
             _songsController.song.value != null
                 ? Image(
                     image: NetworkImage(_songsController.song.value!.coverXl),
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                   )
                 : const SizedBox.shrink(),
             const _BackgroundFilter(),

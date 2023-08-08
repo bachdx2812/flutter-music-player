@@ -17,7 +17,9 @@ class PlaylistCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed('/playlist', arguments: playlist);
+        Get.toNamed('/playlist', arguments: {
+          'id': playlist.id,
+        });
       },
       child: Container(
         height: 75,
@@ -66,7 +68,11 @@ class PlaylistCard extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed('/playlist', arguments: {
+                  'id': playlist.id,
+                });
+              },
               icon: const Icon(
                 Icons.play_circle,
                 color: Colors.white,
